@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+.payment-box{
+width:350px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+
+.option{
+display:flex;
+align-items:center;
+gap:10px;
+margin:12px 0;
+font-size:18px;
+}
+
+.option input{
+width:18px;
+height:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Select Payment Method</h2>
+
+<div class="payment-box">
+
+<form method="POST">
+
+<div class="option">
+<input type="radio" name="payment" value="Cash on Delivery" required>
+<span>Cash on Delivery</span>
+</div>
+
+<div class="option">
+<input type="radio" name="payment" value="UPI">
+<span>UPI</span>
+</div>
+
+<div class="option">
+<input type="radio" name="payment" value="Card">
+<span>Debit / Credit Card</span>
+</div>
+
+<br>
+
+<button type="submit">Pay Now</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

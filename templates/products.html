@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Products</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+width:80%;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.card img{
+width:120px;
+height:120px;
+object-fit:cover;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.cart-btn{
+display:inline-block;
+margin-top:10px;
+padding:8px 12px;
+background:#28a745;
+color:white;
+border-radius:5px;
+}
+
+.cart-btn:hover{
+background:#218838;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Available Grocery Items</h2>
+
+<div class="products">
+
+{% for product in products %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='images/' + product['image']) }}" width="120">
+
+<h3>{{product['name']}}</h3>
+
+<p>Price: ₹{{product['price']}}</p>
+
+<a class="cart-btn" href="/add_to_cart/{{product['id']}}">Add to Cart</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<br><br>
+
+<a href="/cart">Go to Cart</a>
+
+</body>
+</html>
